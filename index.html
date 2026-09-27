@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- Records only ever load from blob:, so a frame that navigates anywhere else is refused (the
+     load count in player.js can't see a redirect made while a file is still parsing). -->
+<meta http-equiv="Content-Security-Policy" content="frame-src blob:">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a0e14">
+<meta name="description" content="Plays EMX records on this device. Nothing is uploaded.">
+<title>EMX Player</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="player.css">
+</head>
+<body>
+<main class="picker" id="picker">
+  <svg class="mark" viewBox="0 0 96 84" aria-hidden="true">
+    <circle cx="18" cy="6" r="4"/><circle cx="30" cy="6" r="4"/><circle cx="66" cy="6" r="4"/><circle cx="78" cy="6" r="4"/>
+    <circle cx="6" cy="18" r="4"/><circle cx="18" cy="18" r="4"/><circle cx="30" cy="18" r="4"/><circle cx="42" cy="18" r="4"/><circle cx="54" cy="18" r="4"/><circle cx="66" cy="18" r="4"/><circle cx="78" cy="18" r="4"/><circle cx="90" cy="18" r="4"/>
+    <circle cx="6" cy="30" r="4"/><circle cx="18" cy="30" r="4"/><circle cx="30" cy="30" r="4"/><circle cx="42" cy="30" r="4"/><circle cx="54" cy="30" r="4"/><circle cx="66" cy="30" r="4"/><circle cx="78" cy="30" r="4"/><circle cx="90" cy="30" r="4"/>
+    <circle cx="6" cy="42" r="4"/><circle cx="18" cy="42" r="4"/><circle cx="30" cy="42" r="4"/><circle cx="42" cy="42" r="4"/><circle cx="54" cy="42" r="4"/><circle cx="66" cy="42" r="4"/><circle cx="78" cy="42" r="4"/><circle cx="90" cy="42" r="4"/>
+    <circle cx="18" cy="54" r="4"/><circle cx="30" cy="54" r="4"/><circle cx="42" cy="54" r="4"/><circle cx="54" cy="54" r="4"/><circle cx="66" cy="54" r="4"/><circle cx="78" cy="54" r="4"/>
+    <circle cx="30" cy="66" r="4"/><circle cx="42" cy="66" r="4"/><circle cx="54" cy="66" r="4"/><circle cx="66" cy="66" r="4"/>
+    <circle cx="42" cy="78" r="4"/><circle cx="54" cy="78" r="4"/>
+  </svg>
+  <h1>EMX Player</h1>
+  <p class="lead">Your record plays on this device. Nothing is uploaded.</p>
+  <button class="open" id="choose" type="button">Open a record</button>
+  <input id="file" type="file" accept=".html,text/html" hidden>
+  <p class="hint">Records are the <b>.emx.html</b> files EMX makes. On iPhone, save one to Files first.</p>
+  <p class="drop-hint">Or drop one anywhere on this page.</p>
+  <p class="error" id="error" role="alert" hidden></p>
+</main>
+<div class="stage" id="stage" hidden>
+  <button class="close" id="close" type="button" aria-label="Close the record"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div>
+<script src="player.js"></script>
+</body>
+</html>
